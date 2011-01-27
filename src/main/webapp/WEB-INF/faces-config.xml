@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+    version="1.2">
+
+	<application>
+		<view-handler>com.icesoft.faces.facelets.D2DFaceletViewHandler</view-handler>
+		<variable-resolver>org.springframework.web.jsf.DelegatingVariableResolver</variable-resolver>
+	</application>
+
+	<lifecycle>
+    <phase-listener>com.bjinfotech.jsf.utils.LoggingPhaseListener</phase-listener>
+  </lifecycle>
+
+  <!-- backingBean直接可以调用spring IoC的Bean -->
+  <managed-bean>
+    <managed-bean-name>fawenBackingBean</managed-bean-name>
+    <managed-bean-class>com.bjinfotech.oa.backingbean.FawenBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    <managed-property>
+      <property-name>service</property-name>
+      <value>#{fawenService}</value>
+    </managed-property>
+  </managed-bean>
+
+  <managed-bean>
+    <managed-bean-name>userBean</managed-bean-name>
+    <managed-bean-class>com.bjinfotech.oa.backingbean.BasedUserBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    <managed-property>
+      <property-name>welcomeService</property-name>
+      <value>#{welcomeService}</value>
+    </managed-property>
+  </managed-bean>
+</faces-config>

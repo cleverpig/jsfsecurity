@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <class name="com.bjinfotech.oa.domain.Fawen" table="fawen">
+    <id name="id" column="id" type="java.lang.Integer">
+      <generator class="native"></generator>
+    </id>
+    <property name="wenhao" length="20"></property>
+    <property name="title" length="40"></property>
+    <property name="content" length="200"></property>
+    <property name="fawenTime" type="java.util.Date"></property>
+    <property name="groupId" length="2"></property>
+    <property name="state" length="2"></property>
+  </class>
+</hibernate-mapping>

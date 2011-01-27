@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+    <head>
+        <title>
+	        <ui:insert name="title">发文</ui:insert>
+        </title>
+    </head>
+    <body>
+        <f:view>
+          <ice:form id="fawenForm"  partialSubmit="true">
+						<ice:panelGroup>
+					    <ice:panelGrid columns="2">
+				        <ice:outputText value="ID:"/>
+				        <ice:outputText value="#{fawenBackingBean.fawen.id}"></ice:outputText>
+				        <ice:outputText value="标题:"/>
+				        <ice:outputText value="#{fawenBackingBean.fawen.title}"></ice:outputText>
+				        <ice:outputText value="内容:"/>
+				        <ice:outputText value="#{fawenBackingBean.fawen.content}"></ice:outputText>
+				        <ice:outputText value="发文日期:"/>
+				        <ice:outputText value="#{fawenBackingBean.fawen.fawenTime}">
+				          <f:convertDateTime pattern="yyyy-MM-dd"></f:convertDateTime>
+				        </ice:outputText>
+				        <ice:commandButton value="读取示例数据" actionListener="#{fawenBackingBean.readExampleActionListener}">
+				          <f:param id="exampleId" name="exampleId" value="1"/>
+				        </ice:commandButton>
+						  </ice:panelGrid>
+						</ice:panelGroup>
+					</ice:form>
+        </f:view>
+    </body>
+</html>

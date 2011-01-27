@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ice="http://www.icesoft.com/icefaces/component"
+      xmlns:sec="http://www.springframework.org/security/facelets/tags">
+<ui:composition template="_user.xhtml">
+  <ui:param name="title" value="#{userBean.username}页面"/>
+  <ui:define name="content">
+    <f:view>
+      <ice:form partialSubmit="true">
+        <ice:panelGrid columns="2">
+          <ice:outputText value="用户名："/>
+          <ice:outputText value="#{userBean.username}"/>
+          <ice:outputText value="问候语："/>
+          <ice:outputText value="#{userBean.greetingWords}"/>
+          <sec:ifAnyGranted roles="PERM_ACCESS_ADMIN">
+            <ice:outputText value="可选操作："/>
+            <h:outputLink value="fawen.faces">发文演示</h:outputLink>
+          </sec:ifAnyGranted>
+        </ice:panelGrid>
+      </ice:form>
+    </f:view>
+  </ui:define>
+</ui:composition>
+</html>

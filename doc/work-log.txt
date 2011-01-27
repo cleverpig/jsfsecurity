@@ -1,0 +1,5 @@
+2011-01-14
+完成：
+  将springsecurity的部分jsp改写为jsf页面；
+  使用facelets-taglib(jsf1.2+spring-security3)对jsf页面中的用户权限进行控制；
+  使用template渲染user.xhtml
